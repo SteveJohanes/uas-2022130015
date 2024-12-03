@@ -1,3 +1,95 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* app.css */
+
+
+.banner {
+    background-color: #fff;
+    color: #000;
+}
+
+.content {
+    text-align: left;
+}
+
+.image img {
+    max-width: 100%;
+    height: auto;
+}
+
+#sponsor {
+    background-color: #fff;
+}
+
+.sponsor-slider {
+    overflow: hidden;
+    position: relative;
+}
+
+.sponsor-track {
+    display: flex;
+    animation: slide 15s linear infinite;
+}
+
+.sponsor-item {
+    flex: 0 0 auto;
+    width: 150px;
+    margin: 0 15px;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.card-footer .btn {
+    margin-right: 5px; /* Atur jarak antar tombol */
+}
+
+.card-footer .btn:last-child {
+    margin-right: 0; /* Menghapus margin di tombol terakhir */
+}
+
+.card {
+    border-radius: 10px; /* Membulatkan sudut kartu */
+}
+
+.card-header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+    .hero {
+        background: linear-gradient(135deg, #3c77b6, #c6cfd8);
+        color: white;
+        padding: 50px 0;
+    }
+
+    .testimonial-card {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    .card-title {
+        font-weight: bold;
+    }
+
+    .btn-primary {
+        background-color: #0056b3;
+        border: none;
+        transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+        background-color: #003f7f;
+    }
+
