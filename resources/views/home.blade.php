@@ -5,7 +5,6 @@
         <div class="container d-flex align-items-center">
             <div class="content col-md-8">
                 <h1>Belajar Bahasa dengan Cara yang Menyenangkan</h1>
-                <p class="lead">Pelajari bahasa baru melalui kursus interaktif dan permainan yang seru.</p>
                 <a href="{{ route('pendaftaran.create') }}" class="btn btn-light btn-lg mt-3">Mulai Belajar</a>
             </div>
             <div class="image col-md-4 text-right">
