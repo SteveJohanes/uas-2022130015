@@ -26,4 +26,9 @@ class KategoriKursus extends Model
         return $this->hasMany(PendaftaranKursus::class, 'kategori_id');
     }
 
+    public function pembayaranKursuses()
+    {
+        return $this->hasMany(PembayaranKursus::class);
+    }
+
 }

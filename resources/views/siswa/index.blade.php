@@ -3,8 +3,6 @@
 @section('content')
     <div class="container">
         <h1 class="mb-4">Daftar Materi</h1>
-
-        <!-- Form untuk memilih kategori -->
         <form method="GET" action="{{ route('siswa.index') }}" class="mb-4">
             <div class="form-group">
                 <label for="kategori_id">Pilih Kursus:</label>

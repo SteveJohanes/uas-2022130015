@@ -3,13 +3,9 @@
 @section('content')
     <div class="container">
         <h2 class="mb-4">Daftar Materi</h2>
-
-        <!-- Tombol untuk menambahkan materi baru -->
         <div class="mb-3 text-end">
             <a href="{{ route('pengajar.create') }}" class="btn btn-success">Tambah Materi Baru</a>
         </div>
-
-        <!-- Container untuk menampilkan semua materi -->
         <div class="row">
             @foreach($materis as $materi)
                 <div class="col-md-4 mb-4">

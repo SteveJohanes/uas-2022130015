@@ -5,7 +5,6 @@
     <h1 class="mb-4">Daftar Kategori Kursus</h1>
     <a href="{{ route('kategori-kursus.create') }}" class="btn btn-primary mb-3">Tambah Kategori</a>
 
-    <!-- Tombol Kembali ke Halaman Pengajar -->
     <a href="{{ route('pengajar.index') }}" class="btn btn-secondary mb-3">Kembali ke Halaman Pengajar</a>
 
     <table class="table">

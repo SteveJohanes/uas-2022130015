@@ -8,6 +8,7 @@ use App\Http\Controllers\PengajarController;
 use App\Http\Controllers\MateriKursusController;
 use App\Http\Controllers\PendaftaranKursusController;
 use App\Http\Controllers\KursusController;
+use App\Http\Controllers\PembayaranKursusController;
 
 Auth::routes();
 
@@ -20,6 +21,8 @@ Route::middleware(['auth', \App\Http\Middleware\RoleMiddleware::class . ':siswa'
     Route::get('/pendaftaran-kursus', [PendaftaranKursusController::class, 'create'])->name('pendaftaran.create');
     Route::post('/pendaftaran-kursus', [PendaftaranKursusController::class, 'store'])->name('pendaftaran.store');
     Route::resource('siswa', SiswaController::class);
+    Route::get('/pembayaran', [PembayaranKursusController::class, 'index'])->name('pembayaran.index');
+    Route::post('/pembayaran', [PembayaranKursusController::class, 'store'])->name('pembayaran.store');
 });
 
 Route::middleware(['auth', \App\Http\Middleware\RoleMiddleware::class . ':pengajar'])->group(function () {

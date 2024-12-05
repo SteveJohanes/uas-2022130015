@@ -6,6 +6,7 @@ use App\Models\KategoriKursus;
 use App\Models\Kursus;
 use App\Models\Materi;
 use App\Models\MateriKursus;
+use App\Models\PembayaranKursus;
 use App\Models\PendaftaranKursus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,21 +19,28 @@ class SiswaController extends Controller
     public function index(Request $request)
     {
         $siswaId = Auth::id();
+        $pendaftaran = PendaftaranKursus::where('siswa_id', $siswaId)->where('status', 'approved')->first();
 
-    $pendaftaran = PendaftaranKursus::where('siswa_id', $siswaId)->pluck('kategori_id');
+        if (!$pendaftaran) {
+            return redirect()->route('pendaftaran.create')->with('error', 'Anda belum melakukan pembayaran.');
+        }
 
-    $kategoriKursuses = KategoriKursus::all();
+        $pembayaran = PembayaranKursus::where('pendaftaran_kursus_id', $pendaftaran->id)->exists();
 
-    $kategoriId = $request->input('kategori_id');
-    if ($kategoriId) {
-        $materis = Materi::where('kategori_id', $kategoriId)
-            ->whereIn('kategori_id', $pendaftaran)
-            ->get();
-    } else {
-        $materis = Materi::whereIn('kategori_id', $pendaftaran)->get();
-    }
+        if (!$pembayaran) {
+            return redirect()->route('pembayaran.index')->with('error', 'Silakan lakukan pembayaran terlebih dahulu.');
+        }
 
-    return view('siswa.index', compact('materis', 'kategoriKursuses'));
+        $kategoriKursuses = KategoriKursus::all();
+        $kategoriId = $request->input('kategori_id');
+
+        if ($kategoriId) {
+            $materis = Materi::where('kategori_id', $kategoriId)->where('kategori_id', $pendaftaran->kategori_id)->get();
+        } else {
+            $materis = Materi::where('kategori_id', $pendaftaran->kategori_id)->get();
+        }
+
+        return view('siswa.index', compact('materis', 'kategoriKursuses'));
     }
 
 

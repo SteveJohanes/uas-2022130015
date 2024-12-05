@@ -48,7 +48,7 @@ class PendaftaranKursusController extends Controller
             'waktu_pendaftaran' => now(),
         ]);
 
-        return redirect()->route('siswa.index')->with('success', 'Pendaftaran kursus berhasil!');
+        return redirect()->route('pembayaran.index')->with('success', 'Pendaftaran berhasil. Silakan lakukan pembayaran.');
     }
 
 

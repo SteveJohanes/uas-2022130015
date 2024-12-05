@@ -30,5 +30,10 @@
 
             <button type="submit" class="btn btn-primary">Daftar</button>
         </form>
+
+        <div class="mt-3">
+            <p>sudah mendaftar tetapi belum bayar</p>
+            <a href="{{ route('pembayaran.index') }}" class="btn btn-warning">bayar</a>
+        </div>
     </div>
 @endsection
