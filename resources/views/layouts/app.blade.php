@@ -85,6 +85,11 @@
                                 <i class="fas fa-comments"></i> Testimoni
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/game') }}">
+                                <i class="fas fa-gamepad"></i> Game
+                            </a>
+                        </li>
                     </ul>
                     <!-- Menu Kanan -->
                     <ul class="navbar-nav ms-auto">

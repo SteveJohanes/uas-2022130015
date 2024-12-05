@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GameController;
 use App\Http\Controllers\KategoriKursusController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +16,7 @@ Auth::routes();
 Route::get('/', fn() => view('home'))->name('home');
 
 
+
 Route::middleware(['auth', \App\Http\Middleware\RoleMiddleware::class . ':siswa'])->group(function () {
     Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa.index');
     Route::get('/materi/{id}', [SiswaController::class, 'show'])->name('materi.show');
@@ -23,6 +25,7 @@ Route::middleware(['auth', \App\Http\Middleware\RoleMiddleware::class . ':siswa'
     Route::resource('siswa', SiswaController::class);
     Route::get('/pembayaran', [PembayaranKursusController::class, 'index'])->name('pembayaran.index');
     Route::post('/pembayaran', [PembayaranKursusController::class, 'store'])->name('pembayaran.store');
+    route::get('game',[GameController::class,'index'])->name('game.index');
 });
 
 Route::middleware(['auth', \App\Http\Middleware\RoleMiddleware::class . ':pengajar'])->group(function () {

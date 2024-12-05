@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mb-4">Daftar Materi</h1>
+        <h1 class="mb-4 mt-4">Daftar Materi</h1>
         <form method="GET" action="{{ route('siswa.index') }}" class="mb-4">
             <div class="form-group">
                 <label for="kategori_id">Pilih Kursus:</label>
@@ -25,7 +25,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $materi->nama }}</h5>
                             <p class="card-text">{{ \Str::limit($materi->materi, 100) }}</p>
-                            <a href="{{ route('materi.show', $materi->id) }}" class="btn btn-info">Lihat Detail</a>
+                            <a href="{{ route('materi.show', $materi->id) }}" class="btn btn-info">Lihat</a>
                         </div>
                         <div class="card-footer text-muted">
                             Kursus: {{ $materi->kategori->nama }}
