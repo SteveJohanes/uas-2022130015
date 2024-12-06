@@ -13,20 +13,24 @@ class PembayaranKursusController extends Controller
     public function index()
     {
         $siswaId = Auth::id();
-        $pendaftaran = PendaftaranKursus::where('siswa_id', $siswaId)->where('status', 'pending')->first();
+        $pendaftarans = PendaftaranKursus::where('siswa_id', $siswaId)
+            ->where('status', 'pending')
+            ->get();
 
-        return view('pembayaran.index', compact('pendaftaran'));
+        return view('pembayaran.index', compact('pendaftarans'));
     }
 
     public function store(Request $request)
     {
-        $siswaId = Auth::id();
-        $pendaftaran = PendaftaranKursus::where('siswa_id', $siswaId)
-            ->where('status', 'pending')
-            ->first();
+        $request->validate([
+            'pendaftaran_id' => 'required|exists:pendaftaran_kursuses,id',
+            'jumlah' => 'required|numeric|min:120000',
+        ]);
 
-        if (!$pendaftaran) {
-            return redirect()->route('pendaftaran.create')->with('error', 'Pendaftaran tidak ditemukan.');
+        $pendaftaran = PendaftaranKursus::findOrFail($request->pendaftaran_id);
+
+        if ($pendaftaran->status !== 'pending') {
+            return redirect()->route('pembayaran.index')->with('error', 'Pembayaran untuk kursus ini sudah dilakukan.');
         }
 
         PembayaranKursus::create([

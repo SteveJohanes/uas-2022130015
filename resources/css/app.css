@@ -4,9 +4,6 @@
 
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-/* app.css */
-
-
 
 .banner {
     background-color: #fff;
@@ -64,15 +61,15 @@
 }
 
 .card-footer .btn {
-    margin-right: 5px; /* Atur jarak antar tombol */
+    margin-right: 5px;
 }
 
 .card-footer .btn:last-child {
-    margin-right: 0; /* Menghapus margin di tombol terakhir */
+    margin-right: 0;
 }
 
 .card {
-    border-radius: 10px; /* Membulatkan sudut kartu */
+    border-radius: 10px;
 }
 
 .card-header {
@@ -110,3 +107,30 @@
     background-color: #003f7f;
 }
 
+footer {
+    background-color: #6196cc;
+    color: #adb5bd;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+footer a {
+    color: #adb5bd;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+footer .fab {
+    font-size: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+footer .fab:hover {
+    transform: scale(1.2);
+    color: #ffffff;
+}

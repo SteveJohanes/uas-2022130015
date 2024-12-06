@@ -153,46 +153,31 @@
         </div>
     </section>
 
-    <footer class="bg-dark text-white text-center py-4" style="width: 100%;">
+    <footer class="text-white text-center py-4">
         <div class="container">
-            <div class="mb-3">
-                <a href="https://www.facebook.com" class="text-white mx-2" target="_blank"
-                    style="text-decoration: none;">
-                    <i class="fab fa-facebook-f"></i> Facebook
+            <div class="d-flex justify-content-center mb-4">
+                <a href="https://www.facebook.com" class="text-white mx-3" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook-f fa-lg"></i>
                 </a>
-                <a href="https://www.twitter.com" class="text-white mx-2" target="_blank"
-                    style="text-decoration: none;">
-                    <i class="fab fa-twitter"></i> Twitter
+                <a href="https://www.twitter.com" class="text-white mx-3" target="_blank" aria-label="Twitter">
+                    <i class="fab fa-twitter fa-lg"></i>
                 </a>
-                <a href="https://www.instagram.com" class="text-white mx-2" target="_blank"
-                    style="text-decoration: none;">
-                    <i class="fab fa-instagram"></i> Instagram
+                <a href="https://www.instagram.com" class="text-white mx-3" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram fa-lg"></i>
                 </a>
-                <a href="https://www.linkedin.com" class="text-white mx-2" target="_blank"
-                    style="text-decoration: none;">
-                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                <a href="https://www.linkedin.com" class="text-white mx-3" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in fa-lg"></i>
                 </a>
             </div>
-
             <div class="mb-3">
                 <p>
                     <strong>Hubungi Kami:</strong><br>
-                    Email: <a href="mailto:support@belajarbahasa.com" class="text-white"
-                        style="text-decoration: none;">support@belajarbahasa.com</a><br>
-                    Telepon: <a href="https://wa.me/6285871424750" class="text-white" style="text-decoration: none;"
-                        target="_blank">+62 858-7142-4750</a>
+                    Email: <a href="mailto:support@belajarbahasa.com" class="text-white text-decoration-none">support@belajarbahasa.com</a><br>
+                    Telepon: <a href="https://wa.me/6285871424750" class="text-white text-decoration-none" target="_blank">+62 858-7142-4750</a>
                 </p>
             </div>
-
-            <div class="mb-3">
-                <a href="/tentang-kami" class="text-white mx-2" style="text-decoration: none;">Tentang Kami</a>
-                <a href="/privasi" class="text-white mx-2" style="text-decoration: none;">Kebijakan Privasi</a>
-                <a href="/syarat-ketentuan" class="text-white mx-2" style="text-decoration: none;">Syarat & Ketentuan</a>
-                <a href="/bantuan" class="text-white mx-2" style="text-decoration: none;">Bantuan</a>
-            </div>
-
             <div class="py-2">
-                <p>&copy; 2024 Website Belajar Bahasa. Semua hak dilindungi.</p>
+                <p class="mb-0">&copy; 2024 <strong>Website Belajar Bahasa</strong>. Semua hak dilindungi.</p>
             </div>
         </div>
     </footer>

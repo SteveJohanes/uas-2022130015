@@ -19,25 +19,22 @@ class SiswaController extends Controller
     public function index(Request $request)
     {
         $siswaId = Auth::id();
-        $pendaftaran = PendaftaranKursus::where('siswa_id', $siswaId)->where('status', 'approved')->first();
+        $pendaftaranIds = PendaftaranKursus::where('siswa_id', $siswaId)
+            ->where('status', 'approved')
+            ->pluck('kategori_id');
 
-        if (!$pendaftaran) {
-            return redirect()->route('pendaftaran.create')->with('error', 'Anda belum melakukan pembayaran.');
-        }
-
-        $pembayaran = PembayaranKursus::where('pendaftaran_kursus_id', $pendaftaran->id)->exists();
-
-        if (!$pembayaran) {
-            return redirect()->route('pembayaran.index')->with('error', 'Silakan lakukan pembayaran terlebih dahulu.');
+        if ($pendaftaranIds->isEmpty()) {
+            return redirect()->route('pendaftaran.create')->with('error', 'Anda belum memiliki kursus yang disetujui.');
         }
 
         $kategoriKursuses = KategoriKursus::all();
         $kategoriId = $request->input('kategori_id');
-
         if ($kategoriId) {
-            $materis = Materi::where('kategori_id', $kategoriId)->where('kategori_id', $pendaftaran->kategori_id)->get();
+            $materis = Materi::where('kategori_id', $kategoriId)
+                ->whereIn('kategori_id', $pendaftaranIds)
+                ->get();
         } else {
-            $materis = Materi::where('kategori_id', $pendaftaran->kategori_id)->get();
+            $materis = Materi::whereIn('kategori_id', $pendaftaranIds)->get();
         }
 
         return view('siswa.index', compact('materis', 'kategoriKursuses'));
